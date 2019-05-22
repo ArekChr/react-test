@@ -15,7 +15,8 @@ import {
   Mobile,
   BalanceDetails,
   Amount,
-  Open
+  Open,
+  LogoImg
 } from './styled'
 
 const logo = `${process.env.PUBLIC_URL}/awaymoFullWhite.svg`
@@ -65,7 +66,7 @@ const Menu = () => {
             <Icon icon="bars" color="white" size="lg"/>
           </Open>
           <Logo>
-            <img src={logo} alt="logo" />
+            <LogoImg src={logo} alt="logo" />
             <CloseIcon onClick={() => setMenu(!menu)} icon="times" color="white" size="1x"/>
           </Logo>
           <Profile>
@@ -75,7 +76,7 @@ const Menu = () => {
             <Details>
               <Text>Dominik <Text mobile>Biel</Text></Text>
               <BalanceDetails>
-                <Text>Avaiable <Text mobile>Balance</Text></Text>
+                <Text>Avaiable <Text mobileOnly>Balance</Text></Text>
                 <Amount>£1,500.00</Amount>
               </BalanceDetails>
             </Details>

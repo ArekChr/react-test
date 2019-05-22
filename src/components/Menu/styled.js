@@ -3,6 +3,13 @@ import { background } from '../../consts/colors'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const mobileWidth = '768px'
+const mobileFontSize = '24px'
+
+export const LogoImg = styled.img`
+  @media (max-width: ${mobileWidth}) {
+    height: 45px;
+  }
+`
 
 export const Logo = styled.div`
   background-color: ${background};
@@ -14,6 +21,10 @@ export const Logo = styled.div`
   width: 100%;
   border-bottom: solid 2px white;
   position: relative;
+
+  @media (max-width: ${mobileWidth}) {
+    border-bottom: solid 2px rgba(255,255,255,.3);
+  }
 `
 
 export const Container = styled.div`
@@ -40,11 +51,16 @@ export const MenuItem = styled.div`
 
   @media (max-width: ${mobileWidth}) {
     font-weight: normal;
+    font-size: ${mobileFontSize}
+    padding-bottom: 25px;
 
     :not(:last-child) {
-      border-bottom: solid 1px rgba(255,255,255,.5);
-      margin-bottom: 10px;
-      padding-bottom: 10px;
+      border-bottom: solid 1.5px rgba(255,255,255,.3);
+      margin-bottom: 25px;
+    }
+
+    :last-child {
+      margin-bottom: 40px;
     }
   }
 `
@@ -53,18 +69,24 @@ export const Footer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top: solid 1px white;
+  border-top: solid 1.5px rgba(255,255,255,.3);
   margin-top: auto;
   padding-top: 10px;
-  padding-bottom: 30px;
+  padding-bottom: 40px;
+
+  @media (max-width: ${mobileWidth}) {
+    padding-bottom: 10px;
+  }
 `
 
 export const Text = styled.span`
   font-size: 16px;
   color: white;
+  display: ${props => props.mobileOnly ? "none;" : "inline;"}
 
   @media (max-width: ${mobileWidth}) {
-    display: ${props => props.mobile ? "none;" : "block;"}
+    font-size: ${mobileFontSize}
+    display: ${props => props.mobile ? "none;" : "inline;"}
   }
 `
 
@@ -112,6 +134,7 @@ export const Details = styled.div`
 
   @media (max-width: ${mobileWidth}) {
     align-items: center;
+    font-weight: normal;
   }
 `
 
@@ -139,16 +162,19 @@ export const Mobile = styled.div`
 
 export const BalanceDetails = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   
   @media (max-width: ${mobileWidth}) {
-    flex-direction: row-reverse;
+    flex-direction: column;
   }
 `
 
 export const Amount = styled(Text)`
+  padding-right: 5px;
+
   @media (max-width: ${mobileWidth}) {
-    padding-right: 5px;
+    padding-right: 0;
+    align-self: center;
   }
 `
 
